@@ -1,0 +1,9 @@
+/* Set a background image by replacing the URL below */
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://2.bp.blogspot.com/-IdebKVCeyak/WW-hxYxUK2I/AAAAAAAACAM/EynZ5mkhcOEMztYa7I-OD53DYm052C-dQCLcBGAs/s1600/116150_original_4073x2828.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

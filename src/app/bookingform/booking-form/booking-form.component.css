@@ -1,0 +1,33 @@
+input {
+    margin-top: -8px;
+    font-size: 14px;
+}
+label{
+    margin-top: 18px;
+    font-weight: 450;
+    font-size: 14px;
+    
+}
+
+::placeholder{
+    color: #C4C7C8;
+}
+h3{
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+#inline{
+    margin-top: 10px;
+    
+}
+#canclebtn{
+    margin-top: -20px;
+    margin-bottom: -10px;
+    margin-left: 96%;
+    background-color: black;
+    color: white;
+    width: 30px;
+    height: 30px;
+}

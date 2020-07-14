@@ -1,0 +1,134 @@
+
+      <div class="row" id="inline">
+         <h3>Booking Information Form</h3>
+         <button id="canclebtn" (click)="onNoClick()" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+<hr>
+  <mat-card-content>
+    <div class="container">
+      <!-- ngNativeValidate -->
+      <form ngNativeValidate [formGroup]="bookingForm" (ngSubmit)="submitData(submitData)" >
+        <div class="form-group">
+          <div class="row">
+            
+            <div class="col-md-4">
+                <label>Name of Applicant</label>
+                <input type="text" formControlName="applicantName" [(ngModel)]="onlineBookingDetail.applicantName" class="form-control" placeholder="Applicant Name" minlength="3" required>
+            </div>
+        
+            <div class="col-md-4">
+                <label>Father/Husband Name</label>
+                <input type="text" formControlName="gaurdianName" [(ngModel)]="onlineBookingDetail.gaurdianName" class="form-control" placeholder="Father or Husband Name" >
+            </div>
+            <div class="col-md-4">
+                <label>CNIC</label>
+                <input appCnicMask type="text" formControlName="applicantCnic" [(ngModel)]="onlineBookingDetail.applicantCnic" class="form-control" placeholder="16202-1234567-8" >
+            </div>
+            <div class="col-md-4">
+                <label>Present Address</label>
+                <input type="text" formControlName="presentAddress" [(ngModel)]="onlineBookingDetail.presentAddress" class="form-control" placeholder="Present Address" required>
+            </div>
+            <div class="col-md-4">
+                <label>Permanant Address</label>
+                <input type="text" formControlName="permanantAddress" [(ngModel)]="onlineBookingDetail.permanantAddress" class="form-control" placeholder="permanant Address">
+            </div>
+            <div class="col-md-4">
+                <label>Telephone No. Office</label>
+                <input type="text" formControlName="officeTelephoneNo" [(ngModel)]="onlineBookingDetail.officeTelephoneNo" class="form-control" placeholder="Office Telephone Number"  >
+            </div>
+            <div class="col-md-4">
+                <label>Residence</label>
+                <input type="text" formControlName="residence" [(ngModel)]="onlineBookingDetail.residence" class="form-control" placeholder="Residence">
+            </div>
+            <div class="col-md-4">
+                <label>Mobile No</label> 
+                <input appPhoneMask type="text" formControlName="mobileNumber" [(ngModel)]="onlineBookingDetail.mobileNumber" class="form-control" placeholder="(92)-346-1234567"  required>
+              </div>
+            <div class="col-md-4">
+                <label>Email</label>
+                <input [class.is-invalid] = "bookingForm.get('email').invalid && bookingForm.get('email').touched" type="email" formControlName="email" [(ngModel)]="onlineBookingDetail.email" class="form-control" placeholder="Email">
+                <span *ngIf="(Email.invalid && Email.touched) || Email.dirty">
+                  <small *ngIf="Email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+                </span>
+              </div>
+
+            <div style="margin-top: 20px;" class="col-md-4">
+                <label>Name of Nominee</label>
+                <input type="text" formControlName="nomineeName" [(ngModel)]="onlineBookingDetail.nomineeName" class="form-control" placeholder="Name of Nominee" minlength="3">
+            </div>
+            <div style="margin-top: 20px;" class="col-md-4">
+                <label>Nominee Father/Husband Name</label>
+                <input type="text" formControlName="nomineeGaurdian" [(ngModel)]="onlineBookingDetail.nomineeGaurdian" class="form-control" placeholder="Nominee Father or Husband Name" >
+            </div>
+            <div style="margin-top: 20px;" class="col-md-4">
+                <label>Relationship with Applicant</label>
+                <input type="text" formControlName="relationWithApplicant" [(ngModel)]="onlineBookingDetail.relationWithApplicant" class="form-control" placeholder="Relationship with Applicant" >
+            </div>
+            <div class="col-md-4">
+                <label>CNIC</label>
+                <input appNCnicMask type="text" formControlName="nomineeCnic" [(ngModel)]="onlineBookingDetail.nomineeCnic" class="form-control" placeholder="16202-1234567-8" >
+            </div>
+            <div class="col-md-4">
+                <label>Size of Plot Applied</label>
+                <input type="text" formControlName="plotSize" [(ngModel)]="onlineBookingDetail.plotSize" class="form-control" placeholder="Registrtion Number" >
+            </div>
+            <div class="col-md-4">
+              <label>Choose type of Plat</label>
+              <div style="margin-top: -8px" formControlName="type" [(ngModel)]="onlineBookingDetail.type" >
+              <select style="height: 35px;"  class=" bootstrap-select dropdown-toggle form-control">
+                <option value="1" selected="selected">Residencial</option>
+                <option value="2">Corner</option>
+                <option value="3">Commercial</option>
+                <option value="4">Main Blvd</option>
+              </select>
+            </div>
+            </div>
+              <div class="col-md-4">
+                <label>Bank Drapt Pay Order No./Deposit Slip No.</label>
+                <input type="text" formControlName="slipNumber" [(ngModel)]="onlineBookingDetail.slipNumber" class="form-control" placeholder="Bank Drapt Pay Order Number or Deposit Slip No." >
+            </div>
+            <div class="col-md-4">
+              <label>Date of Booking</label>
+              <input type="date" formControlName="date" [(ngModel)]="onlineBookingDetail.date" class="form-control" placeholder="mm/dd/yyyy" >
+            </div>
+            <div class="col-md-4">
+                <label>Amount Rs.</label>
+                <input type="text" formControlName="amountRs" [(ngModel)]="onlineBookingDetail.amountRs" class="form-control" placeholder="Amount Rs" >
+            </div>
+            <div class="col-md-4">
+                <label>Rupees</label>
+                <input type="text" formControlName="rupees" [(ngModel)]="onlineBookingDetail.rupees" class="form-control" placeholder="Rupees" >
+            </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-6" style="margin-top: 10px;">
+            <button type="submit" class="btn btn-success" (click)="onSubmit">Submit</button>
+        </div>
+        </div>
+    </div>
+    
+      </form>
+     
+    </div>
+    <div *ngIf="successalert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <div *ngFor="let Response of response">
+        <strong>{{Response.message}}</strong> {{Response.object}}.
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+      <div *ngIf="warnAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div *ngFor="let Response of response">
+          <strong>{{Response.message}}</strong> {{Response.object}}
+        <button (click)="closeAlertt()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div >
+    </div>
+  
+    
+      
+  </mat-card-content>
+  
